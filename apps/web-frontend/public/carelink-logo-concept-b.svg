@@ -1,0 +1,55 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- CONCEPT B: INTERCONNECTED NODES -->
+  <!-- This showcases real-time coordination and dynamic flow -->
+  
+  <defs>
+    <linearGradient id="nodeGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00A86B;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#20B2AA;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="nodeGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFB81C;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FFA500;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="nodeGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF6B6B;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#FF8A80;stop-opacity:0.8" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Clinical Node (Left) -->
+  <circle cx="50" cy="80" r="22" fill="url(#nodeGrad1)"/>
+  <!-- Heart inside -->
+  <path d="M 50 70 Q 55 65 58 68 Q 58 72 50 78 Q 42 72 42 68 Q 45 65 50 70" fill="white"/>
+  
+  <!-- Coordination Node (Center-Top) -->
+  <circle cx="100" cy="50" r="22" fill="#2C3E50"/>
+  <!-- Star inside -->
+  <path d="M 100 40 L 104 50 L 115 50 L 107 56 L 110 67 L 100 61 L 90 67 L 93 56 L 85 50 L 96 50 Z" fill="white"/>
+  
+  <!-- Workplace Node (Right) -->
+  <circle cx="150" cy="80" r="22" fill="url(#nodeGrad2)"/>
+  <!-- Growth arrow inside -->
+  <path d="M 150 75 L 150 85 M 145 80 L 150 75 L 155 80" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Connection Lines (flow arrows) -->
+  <!-- Left to Center -->
+  <line x1="68" y1="65" x2="88" y2="55" stroke="#00A86B" stroke-width="2.5" opacity="0.7"/>
+  <polygon points="88,55 85,60 83,54" fill="#00A86B" opacity="0.7"/>
+  
+  <!-- Right to Center -->
+  <line x1="132" y1="65" x2="112" y2="55" stroke="#FFB81C" stroke-width="2.5" opacity="0.7"/>
+  <polygon points="112,55 117,54 115,60" fill="#FFB81C" opacity="0.7"/>
+  
+  <!-- Center to Outcome -->
+  <line x1="100" y1="72" x2="100" y2="120" stroke="#2C3E50" stroke-width="2.5" opacity="0.9" stroke-dasharray="3,3"/>
+  
+  <!-- Outcome/Impact Node (Bottom) -->
+  <circle cx="100" cy="145" r="22" fill="url(#nodeGrad3)"/>
+  <!-- Checkmark inside -->
+  <path d="M 92 145 L 96 149 L 108 137" stroke="white" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Decorative pulses (to show real-time) -->
+  <circle cx="50" cy="80" r="25" fill="none" stroke="#00A86B" stroke-width="1" opacity="0.3" stroke-dasharray="2,2"/>
+  <circle cx="150" cy="80" r="25" fill="none" stroke="#FFB81C" stroke-width="1" opacity="0.3" stroke-dasharray="2,2"/>
+</svg>

@@ -1,0 +1,61 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="dropShadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.15"/>
+    </filter>
+    <filter id="innerGlow">
+      <feGaussianBlur stdDeviation="0.8" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Clinical Circle (Left) - Black -->
+  <circle cx="50" cy="100" r="32" fill="#2C3E50" filter="url(#dropShadow)"/>
+  
+  <!-- Workplace Circle (Right) - Black -->
+  <circle cx="150" cy="100" r="32" fill="#2C3E50" filter="url(#dropShadow)"/>
+  
+  <!-- Bridge Arc - Main -->
+  <path d="M 82 84 Q 100 52 118 84" stroke="#1A252F" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Bridge Arc - Accent (lighter) -->
+  <path d="M 82 84 Q 100 52 118 84" stroke="#3D5A73" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.4"/>
+  
+  <!-- Support Deck -->
+  <line x1="82" y1="84" x2="118" y2="84" stroke="#1A252F" stroke-width="3" opacity="0.85"/>
+  <line x1="84" y1="88" x2="116" y2="88" stroke="#1A252F" stroke-width="1.5" opacity="0.4"/>
+  
+  <!-- Stethoscope Icon (Left Circle) -->
+  <g transform="translate(50, 100)">
+    <circle cx="-10" cy="-8" r="2.5" fill="white" filter="url(#innerGlow)"/>
+    <circle cx="10" cy="-8" r="2.5" fill="white" filter="url(#innerGlow)"/>
+    <path d="M -10 -8 Q -14 -2 -10 4" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <path d="M 10 -8 Q 14 -2 10 4" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <path d="M -10 -8 Q 0 -2 10 -8" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <line x1="0" y1="4" x2="0" y2="10" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+    <circle cx="0" cy="14" r="5" fill="none" stroke="white" stroke-width="2.5"/>
+    <circle cx="0" cy="14" r="2.5" fill="white" opacity="0.3"/>
+  </g>
+  
+  <!-- Briefcase Icon (Right Circle) -->
+  <g transform="translate(150, 100)">
+    <rect x="-11" y="-6" width="22" height="16" rx="1.5" fill="none" stroke="white" stroke-width="2.5"/>
+    <path d="M -8 -6 Q -8 -13 0 -13 Q 8 -13 8 -6" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <line x1="-11" y1="2" x2="11" y2="2" stroke="white" stroke-width="2" opacity="0.8"/>
+    <rect x="-2" y="0" width="4" height="3" rx="0.5" fill="none" stroke="white" stroke-width="1.2" opacity="0.9"/>
+    <circle cx="0" cy="1.5" r="0.8" fill="white" opacity="0.6"/>
+    <line x1="-11" y1="10" x2="-9" y2="10" stroke="white" stroke-width="1" opacity="0.4"/>
+    <line x1="11" y1="10" x2="9" y2="10" stroke="white" stroke-width="1" opacity="0.4"/>
+  </g>
+  
+  <!-- Connection points -->
+  <circle cx="78" cy="100" r="3" fill="#1A252F" opacity="0.7"/>
+  <circle cx="122" cy="100" r="3" fill="#1A252F" opacity="0.7"/>
+  
+  <!-- Halo effect -->
+  <circle cx="50" cy="100" r="35" fill="none" stroke="#2C3E50" stroke-width="0.5" opacity="0.15"/>
+  <circle cx="150" cy="100" r="35" fill="none" stroke="#2C3E50" stroke-width="0.5" opacity="0.15"/>
+</svg>

@@ -1,0 +1,44 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- CONCEPT C: UPWARD ARROW WITH SPLIT BASE -->
+  <!-- Emphasizes convergence, growth, and unified support -->
+  
+  <defs>
+    <linearGradient id="leftBase" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00A86B;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#20B2AA;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="rightBase" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFB81C;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FFA500;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="arrowGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#00A86B;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#1BC47D;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FFB81C;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Left Base (Clinical - Teal) -->
+  <polygon points="50,120 100,90 75,90" fill="url(#leftBase)"/>
+  
+  <!-- Right Base (Workplace - Gold) -->
+  <polygon points="100,90 150,120 125,90" fill="url(#rightBase)"/>
+  
+  <!-- Central Arrow (converging and upward) -->
+  <path d="M 100 85 L 100 55 L 115 70 M 100 55 L 85 70" stroke="url(#arrowGrad)" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Main Arrow Fill -->
+  <polygon points="100,40 115,60 90,60" fill="url(#arrowGrad)" opacity="0.95"/>
+  
+  <!-- Supporting lines showing integration -->
+  <line x1="75" y1="95" x2="95" y2="75" stroke="#00A86B" stroke-width="2" opacity="0.5" stroke-dasharray="2,2"/>
+  <line x1="125" y1="95" x2="105" y2="75" stroke="#FFB81C" stroke-width="2" opacity="0.5" stroke-dasharray="2,2"/>
+  
+  <!-- Decorative circles showing balance -->
+  <circle cx="65" cy="100" r="3" fill="#00A86B" opacity="0.7"/>
+  <circle cx="135" cy="100" r="3" fill="#FFB81C" opacity="0.7"/>
+  <circle cx="100" cy="45" r="4" fill="#1BC47D" opacity="0.9"/>
+  
+  <!-- Subtle shadow/depth under arrow -->
+  <ellipse cx="100" cy="75" rx="18" ry="4" fill="black" opacity="0.1"/>
+</svg>

@@ -1,0 +1,106 @@
+<svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Premium gradients -->
+    <linearGradient id="tealGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00D98E;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#00B870;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#007349;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFE066;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#FFC107;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F57C00;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Professional shadow -->
+    <filter id="dropShadow">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-opacity="0.12"/>
+    </filter>
+    
+    <!-- Glow effect for premium look -->
+    <filter id="innerGlow">
+      <feGaussianBlur stdDeviation="1" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Clinical Circle (Left) - Premium -->
+  <circle cx="64" cy="128" r="48" fill="url(#tealGradient)" filter="url(#dropShadow)"/>
+  
+  <!-- Workplace Circle (Right) - Premium -->
+  <circle cx="192" cy="128" r="48" fill="url(#goldGradient)" filter="url(#dropShadow)"/>
+  
+  <!-- Bridge Arc - Main (refined, bold) -->
+  <path d="M 112 90 Q 128 45 144 90" stroke="#00A86B" stroke-width="5.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Bridge Arc - Accent (lighter layer for depth) -->
+  <path d="M 112 90 Q 128 45 144 90" stroke="#00D98E" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.5"/>
+  
+  <!-- Bridge Support Deck -->
+  <line x1="114" y1="90" x2="142" y2="90" stroke="#00A86B" stroke-width="4" stroke-linecap="round" opacity="0.9"/>
+  <line x1="116" y1="100" x2="140" y2="100" stroke="#00A86B" stroke-width="2" opacity="0.4"/>
+  
+  <!-- Stethoscope Icon (Left Circle) - High-quality -->
+  <g transform="translate(64, 128)">
+    <!-- Earpieces (premium) -->
+    <circle cx="-14" cy="-10" r="3.5" fill="white" filter="url(#innerGlow)"/>
+    <circle cx="14" cy="-10" r="3.5" fill="white" filter="url(#innerGlow)"/>
+    
+    <!-- Upper connecting arc -->
+    <path d="M -14 -10 Q 0 0 14 -10" stroke="white" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    
+    <!-- Left tube -->
+    <path d="M -14 -10 Q -18 5 -14 15" stroke="white" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    
+    <!-- Right tube -->
+    <path d="M 14 -10 Q 18 5 14 15" stroke="white" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    
+    <!-- Central tube down -->
+    <line x1="0" y1="0" x2="0" y2="15" stroke="white" stroke-width="3" stroke-linecap="round"/>
+    
+    <!-- Diaphragm (champion circle with depth) -->
+    <circle cx="0" cy="22" r="8" fill="none" stroke="white" stroke-width="3.5"/>
+    <circle cx="0" cy="22" r="3.5" fill="white" opacity="0.2"/>
+    
+    <!-- Subtle inner detail -->
+    <circle cx="0" cy="22" r="5" fill="none" stroke="white" stroke-width="1" opacity="0.5"/>
+  </g>
+  
+  <!-- Briefcase Icon (Right Circle) - High-quality -->
+  <g transform="translate(192, 128)">
+    <!-- Main body with premium proportions -->
+    <rect x="-16" y="-8" width="32" height="22" rx="2.5" fill="none" stroke="white" stroke-width="3.5" stroke-linejoin="round"/>
+    
+    <!-- Handle with refined curve -->
+    <path d="M -12 -8 Q -12 -18 0 -18 Q 12 -18 12 -8" stroke="white" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    
+    <!-- Lid division line (professional detail) -->
+    <line x1="-16" y1="4" x2="16" y2="4" stroke="white" stroke-width="3" opacity="0.85"/>
+    
+    <!-- Lock mechanism (security detail) -->
+    <g transform="translate(0, -2)">
+      <rect x="-4" y="2" width="8" height="5" rx="1" fill="none" stroke="white" stroke-width="1.5" opacity="0.95"/>
+      <circle cx="0" cy="5" r="1.2" fill="white" opacity="0.7"/>
+    </g>
+    
+    <!-- Subtle corner reinforcements -->
+    <line x1="-16" y1="14" x2="-12" y2="14" stroke="white" stroke-width="1.5" opacity="0.4"/>
+    <line x1="16" y1="14" x2="12" y2="14" stroke="white" stroke-width="1.5" opacity="0.4"/>
+  </g>
+  
+  <!-- Connection Points (refined, subtle) -->
+  <circle cx="108" cy="128" r="4" fill="#00A86B" opacity="0.8"/>
+  <circle cx="148" cy="128" r="4" fill="#FFB81C" opacity="0.8"/>
+  
+  <!-- Halo effects (premium polish) -->
+  <circle cx="64" cy="128" r="52" fill="none" stroke="#00A86B" stroke-width="0.8" opacity="0.1"/>
+  <circle cx="192" cy="128" r="52" fill="none" stroke="#FFB81C" stroke-width="0.8" opacity="0.1"/>
+  
+  <!-- Subtle inner highlights for depth -->
+  <circle cx="56" cy="120" r="12" fill="white" opacity="0.08"/>
+  <circle cx="200" cy="120" r="12" fill="white" opacity="0.08"/>
+</svg>

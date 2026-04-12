@@ -1,0 +1,98 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Premium gradients for circles -->
+    <linearGradient id="tealGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00C878;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#008A5C;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFD04D;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FF9800;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Subtle shadow effect -->
+    <filter id="softShadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.15"/>
+    </filter>
+    
+    <!-- Glow for circles -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="0.5" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="200" height="200" fill="white"/>
+  
+  <!-- Clinical Circle (Left) - Premium with gradient and shadow -->
+  <circle cx="50" cy="100" r="32" fill="url(#tealGrad)" filter="url(#softShadow)"/>
+  
+  <!-- Workplace Circle (Right) - Premium with gradient and shadow -->
+  <circle cx="150" cy="100" r="32" fill="url(#goldGrad)" filter="url(#softShadow)"/>
+  
+  <!-- Bridge Arc - Primary (thicker, refined curve) -->
+  <path d="M 82 84 Q 100 52 118 84" stroke="#00A86B" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.95"/>
+  
+  <!-- Bridge Arc - Accent (lighter, subtle) -->
+  <path d="M 82 84 Q 100 52 118 84" stroke="#00C878" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.4"/>
+  
+  <!-- Support Deck Lines (bridge structure) -->
+  <line x1="82" y1="84" x2="118" y2="84" stroke="#00A86B" stroke-width="3" opacity="0.85"/>
+  <line x1="84" y1="88" x2="116" y2="88" stroke="#00A86B" stroke-width="1.5" opacity="0.4"/>
+  
+  <!-- Stethoscope Icon (Left Circle) - Professional design -->
+  <g transform="translate(50, 100)">
+    <!-- Earpieces with subtle 3D -->
+    <circle cx="-10" cy="-8" r="2.5" fill="white" filter="url(#glow)"/>
+    <circle cx="10" cy="-8" r="2.5" fill="white" filter="url(#glow)"/>
+    
+    <!-- Upper tubes with curves -->
+    <path d="M -10 -8 Q -14 -2 -10 4" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <path d="M 10 -8 Q 14 -2 10 4" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    
+    <!-- Central connection (Y-tube) -->
+    <path d="M -10 -8 Q 0 -2 10 -8" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    
+    <!-- Vertical tube -->
+    <line x1="0" y1="4" x2="0" y2="10" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+    
+    <!-- Diaphragm (champion circle) -->
+    <circle cx="0" cy="14" r="5" fill="none" stroke="white" stroke-width="2.5"/>
+    <circle cx="0" cy="14" r="2.5" fill="white" opacity="0.3"/>
+  </g>
+  
+  <!-- Briefcase Icon (Right Circle) - Professional design -->
+  <g transform="translate(150, 100)">
+    <!-- Main body with subtle depth -->
+    <rect x="-11" y="-6" width="22" height="16" rx="1.5" fill="none" stroke="white" stroke-width="2.5"/>
+    
+    <!-- Handle with refined curve -->
+    <path d="M -8 -6 Q -8 -13 0 -13 Q 8 -13 8 -6" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    
+    <!-- Center detail line (open/close indicator) -->
+    <line x1="-11" y1="2" x2="11" y2="2" stroke="white" stroke-width="2" opacity="0.8"/>
+    
+    <!-- Lock detail (professional touch) -->
+    <g transform="translate(0, -1)">
+      <rect x="-2" y="1" width="4" height="3" rx="0.5" fill="none" stroke="white" stroke-width="1.2" opacity="0.9"/>
+      <circle cx="0" cy="2.5" r="0.8" fill="white" opacity="0.6"/>
+    </g>
+    
+    <!-- Subtle corner details -->
+    <line x1="-11" y1="10" x2="-9" y2="10" stroke="white" stroke-width="1" opacity="0.4"/>
+    <line x1="11" y1="10" x2="9" y2="10" stroke="white" stroke-width="1" opacity="0.4"/>
+  </g>
+  
+  <!-- Connection points (subtle, premium) -->
+  <circle cx="78" cy="100" r="3" fill="#00A86B" opacity="0.7"/>
+  <circle cx="122" cy="100" r="3" fill="#FFB81C" opacity="0.7"/>
+  
+  <!-- Subtle glow/halo effect around circles -->
+  <circle cx="50" cy="100" r="35" fill="none" stroke="#00A86B" stroke-width="0.5" opacity="0.15"/>
+  <circle cx="150" cy="100" r="35" fill="none" stroke="#FFB81C" stroke-width="0.5" opacity="0.15"/>
+</svg>

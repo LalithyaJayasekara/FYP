@@ -1,0 +1,240 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://healthcare-hr-bridge.local/schemas/assessment-submission.schema.json",
+  "title": "AssessmentSubmission",
+  "description": "Screening submission for dyslexia and dyscalculia risk estimation.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "assessmentId",
+    "assessmentVersion",
+    "frameworkAlignment",
+    "respondent",
+    "responses"
+  ],
+  "properties": {
+    "assessmentId": {
+      "type": "string",
+      "minLength": 3
+    },
+    "assessmentVersion": {
+      "type": "string",
+      "pattern": "^v[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "frameworkAlignment": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "enum": ["DSM-5-TR", "ICD-11", "ICF"]
+      }
+    },
+    "respondent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["employeeId", "language", "consentGiven", "submittedAt"],
+      "properties": {
+        "employeeId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "ageBand": {
+          "type": "string",
+          "enum": ["18-24", "25-34", "35-44", "45-54", "55+"]
+        },
+        "language": {
+          "type": "string",
+          "enum": ["english", "sinhala", "tamil"]
+        },
+        "consentGiven": {
+          "type": "boolean",
+          "const": true
+        },
+        "consentScope": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["clinicalAssessment"],
+          "properties": {
+            "clinicalAssessment": {
+              "type": "boolean",
+              "const": true
+            },
+            "hrAccommodationSharing": {
+              "type": "boolean"
+            },
+            "researchUse": {
+              "type": "boolean"
+            },
+            "expiresAt": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        },
+        "submittedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "clinicalContext": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "developmentalHistoryConfirmed": {
+          "type": "boolean"
+        },
+        "symptomsDurationMonths": {
+          "type": "number",
+          "minimum": 0
+        },
+        "priorAssessmentsCount": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "exclusionChecks": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "intellectualDisabilityRuledOut": {
+          "type": "boolean"
+        },
+        "sensoryImpairmentRuledOut": {
+          "type": "boolean"
+        },
+        "inadequateInstructionRuledOut": {
+          "type": "boolean"
+        },
+        "languageProficiencyConcern": {
+          "type": "boolean"
+        },
+        "adhdConsidered": {
+          "type": "boolean"
+        }
+      }
+    },
+    "responses": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "itemId",
+          "disorder",
+          "construct",
+          "modality",
+          "rawScore",
+          "minScore",
+          "maxScore",
+          "weight"
+        ],
+        "properties": {
+          "itemId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "disorder": {
+            "type": "string",
+            "enum": ["dyslexia", "dyscalculia", "functional-impact"]
+          },
+          "construct": {
+            "type": "string",
+            "enum": ["performance", "self_report", "functional_impact"]
+          },
+          "modality": {
+            "type": "string",
+            "enum": ["questionnaire", "voice", "writing"]
+          },
+          "rawScore": {
+            "type": "number"
+          },
+          "minScore": {
+            "type": "number"
+          },
+          "maxScore": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "weight": {
+            "type": "number",
+            "exclusiveMinimum": 0,
+            "maximum": 1
+          },
+          "normMean": {
+            "type": "number"
+          },
+          "normStdDev": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "required": ["normMean"]
+            },
+            "then": {
+              "required": ["normStdDev"]
+            }
+          }
+        ]
+      }
+    },
+    "artifacts": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "voiceTasks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["taskId", "transcript", "durationSeconds", "targetWpm", "keywordCoverage"],
+            "properties": {
+              "taskId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "transcript": {
+                "type": "string"
+              },
+              "durationSeconds": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "targetWpm": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "keywordCoverage": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              }
+            }
+          }
+        },
+        "writing": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["referenceText", "copiedText", "uploadedParagraphText"],
+          "properties": {
+            "referenceText": {
+              "type": "string"
+            },
+            "copiedText": {
+              "type": "string"
+            },
+            "uploadedParagraphText": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}
