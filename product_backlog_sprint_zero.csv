@@ -1,0 +1,16 @@
+As PM I want tasks assigned to resourcesEpic,User Story,Start Date,End Date,Best Effort (hrs),Optimal Effort (hrs),Worst Effort (hrs),Priority,Sprint,Assignee,Notes
+Project Setup,As project owner I want initial alignment meetings so objectives are clear,2026-01-01,2026-01-07,4,8,12,High,Sprint 0,You,Client kickoff meeting; schedule core stakeholders
+Project Setup,As a BA I want to gather stakeholder needs so requirements are clear,2026-01-04,2026-01-14,8,16,24,High,Sprint 0,You,Interviews: clinicians, HR, IT, Legal
+Requirements,As a team we want workshops to resolve ambiguities,2026-01-05,2026-01-21,16,32,48,High,Sprint 0,You,Requirements clarification workshops; capture decisions
+Documentation,As product owner I want a BRD capturing objectives, value and scope,2026-01-08,2026-02-05,40,80,120,High,Sprint 0,You,Draft BRD: objectives, problem identification, business value, acceptance criteria, business architecture diagram
+Documentation,As architect I want an architecture diagram to show solution boundaries,2026-01-15,2026-01-28,8,16,24,High,Sprint 0,You,Create business architecture diagram showing systems and integrations
+Research,As researcher I want to document background for publication (intro),2026-01-01,2026-01-14,8,16,24,Medium,Sprint 0,You,Write introduction
+Research,As researcher I want to document background for publication (lit review),2026-01-15,2026-02-05,24,40,80,Medium,Sprint 0,You,Write literature review; collect references
+Planning,As product owner I want clearly defined epics to plan work,2026-01-10,2026-01-20,8,16,24,High,Sprint 0,You,Identify epics & features from BRD
+Planning,As PM I want tasks assigned to resources,2026-01-18,2026-01-28,8,16,24,High,Sprint 0,You,Create task distribution & resource plan
+Change Management,As stakeholder I want to refine project topic and scope,2026-01-01,2026-01-14,8,16,24,High,Sprint 0,You,Refine topic and scope; document approvals
+Engineering,As devops I want a repo and CI to manage code,2026-01-04,2026-01-14,8,16,24,Medium,Sprint 0,You,Set up Git repo, CI template, issue tracker
+Planning,As team I want defined sprints and schedule,2026-01-20,2026-02-04,8,16,24,High,Sprint 0,You,Sprint planning and define next sprints
+Compliance,As researcher I want privacy approvals for data use,2026-01-10,2026-01-24,8,16,24,High,Sprint 0,You,Engage legal for HIPAA/GDPR checks
+Metrics,As PM I want KPIs defined to measure impact,2026-01-12,2026-01-26,8,16,24,Medium,Sprint 0,You,Define success metrics & KPIs
+Documentation,As team I want user stories to populate the backlog,2026-01-15,2026-02-05,16,32,48,High,Sprint 0,You,Create initial user stories and acceptance criteria

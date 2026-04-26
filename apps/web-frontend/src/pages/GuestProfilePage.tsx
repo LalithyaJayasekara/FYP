@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { getGuestSession, upsertGuestSession } from '../services/guestSessionStore'
+import { requestGuestChatAnswer, type GuestChatHistoryEntry } from '../services/guestChatApi'
 
 type ChatMessage = {
   id: string
@@ -118,6 +119,7 @@ export default function GuestProfilePage() {
   const [showChatbot, setShowChatbot] = useState(false)
   const [chatInput, setChatInput] = useState('')
   const [guestChatTurnsUsed, setGuestChatTurnsUsed] = useState(guestSession?.chatTurnsUsed ?? 0)
+  const [isChatLoading, setIsChatLoading] = useState(false)
   const [chatMessages, setChatMessages] = useState<ChatMessage[]>([
     {
       id: 'assistant-welcome',
@@ -177,27 +179,9 @@ export default function GuestProfilePage() {
     navigate('/auth', { state: { from: '/screening', reason } })
   }
 
-  const buildAssistantReply = (question: string) => {
-    const normalized = question.toLowerCase()
-
-    if (normalized.includes('privacy') || normalized.includes('data') || normalized.includes('secure')) {
-      return 'Guest sessions are temporary and designed for preliminary guidance only. Full records and governance workflows require sign-in.'
-    }
-
-    if (normalized.includes('questionnaire') || normalized.includes('questions')) {
-      return 'Use the 0 to 4 scale consistently and answer based on recent work patterns. Honest responses improve screening quality.'
-    }
-
-    if (normalized.includes('result') || normalized.includes('score')) {
-      return 'Guest outputs are preliminary and not diagnostic. After sign-in, you can continue to fuller workflow features.'
-    }
-
-    return 'Thanks for your question. I can guide you on screening steps, privacy basics, and what to expect from the questionnaire.'
-  }
-
-  const sendGuestMessage = () => {
+  const sendGuestMessage = async () => {
     const trimmed = chatInput.trim()
-    if (!trimmed || guestTurnLimitReached) {
+    if (!trimmed || guestTurnLimitReached || isChatLoading) {
       return
     }
 
@@ -207,15 +191,52 @@ export default function GuestProfilePage() {
       role: 'user',
       content: trimmed,
     }
-    const assistantMessage: ChatMessage = {
+    const assistantPlaceholder: ChatMessage = {
       id: `assistant-${Date.now()}-${nextTurn}`,
       role: 'assistant',
-      content: buildAssistantReply(trimmed),
+      content: 'Thinking... please wait while I gather guidance.',
     }
 
-    setChatMessages((prev) => [...prev, userMessage, assistantMessage])
+    setChatMessages((prev) => [...prev, userMessage, assistantPlaceholder])
     setGuestChatTurnsUsed(nextTurn)
     setChatInput('')
+    setIsChatLoading(true)
+
+    const history: GuestChatHistoryEntry[] = [
+      ...chatMessages,
+      userMessage,
+    ]
+      .slice(-10)
+      .map((message) => ({
+        role: message.role,
+        content: message.content,
+      }))
+
+    try {
+      const answer = await requestGuestChatAnswer(trimmed, history)
+      setChatMessages((prev) =>
+        prev.map((message) =>
+          message.id === assistantPlaceholder.id
+            ? { ...message, content: answer }
+            : message
+        )
+      )
+    } catch (error) {
+      const fallback =
+        error instanceof Error
+          ? error.message
+          : 'The assistant is unavailable right now. Please try again in a moment.'
+
+      setChatMessages((prev) =>
+        prev.map((message) =>
+          message.id === assistantPlaceholder.id
+            ? { ...message, content: fallback }
+            : message
+        )
+      )
+    } finally {
+      setIsChatLoading(false)
+    }
   }
 
   useEffect(() => {
@@ -528,10 +549,10 @@ export default function GuestProfilePage() {
                 />
                 <button
                   onClick={sendGuestMessage}
-                  disabled={guestTurnLimitReached || chatInput.trim().length === 0}
+                  disabled={guestTurnLimitReached || chatInput.trim().length === 0 || isChatLoading}
                   className="rounded-lg bg-gradient-to-r from-purple-600 to-blue-600 px-4 py-2 text-sm font-semibold text-white hover:from-purple-700 hover:to-blue-700 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  Ask AI
+                  {isChatLoading ? 'Thinking…' : 'Ask AI'}
                 </button>
               </div>
               <p className="text-xs text-slate-500 mt-2 text-center">
